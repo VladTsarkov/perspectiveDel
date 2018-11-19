@@ -7,7 +7,7 @@ def Transform(img,tempt, x1,y1,x2,y2,x3,y3,x4,y4):
     [x3,y3],
     [x4,y4]], dtype = "float32")
     (tl,tr,br,bl)=src
-    print(src)
+    #print(src)
     widthA = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
     widthB = np.sqrt(((tr[0] - tl[0]) ** 2) + ((tr[1] - tl[1]) ** 2))
     maxWidth = max(int(widthA), int(widthB))
@@ -15,17 +15,6 @@ def Transform(img,tempt, x1,y1,x2,y2,x3,y3,x4,y4):
     heightB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
     maxHeight = max(int(heightA), int(heightB))
 
-    """
-
-    heightA = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
-    heightB = np.sqrt(((tr[0] - tl[0]) ** 2) + ((tr[1] - tl[1]) ** 2))
-    maxHeight = max(int(heightA), int(heightB))
-    widthA = np.sqrt(((tr[0] - br[0]) ** 2) + ((tr[1] - br[1]) ** 2))
-    widthB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
-    maxWidth = max(int(widthA), int(widthB))
-    """
-    print("THEFL? ",tl[0],bl[0],tl[1],bl[1])
-    print("THEFR? ",tr[0],br[0],tr[1],br[1])
     dst = np.array([
     [0, 0],
     [maxWidth - 1, 0],

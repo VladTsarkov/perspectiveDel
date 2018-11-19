@@ -112,7 +112,6 @@ for line in temp:
 	k=(y2-y1)/(x2-x1)*-1
 	b=(x1*y2-x2*y1)/(x1-x2)
 	ugol=np.arctan(k)*180/np.pi
-	print("ugol ",ugol)
 	"""
 	if ugol>=80 and ugol<=100 or ugol>=-100 and ugol<=-80:
 		if x1 < xMin:
@@ -167,7 +166,7 @@ cv2.line(img4,(btempx11,btempy11),(btempx22,btempy22),(0,244,200),2) #BL
 #	ltempx1,ltempx2,ltempy1,ltempy2 = (0, 0, 0, shape[1])
 ltempx1,ltempx2,ltempy1,ltempy2 = (0, 0, 0, shape[1])
 rtempx1,rtempx2,rtempy1,rtempy2 = (shape[1], shape[1], 0, shape[0])
-print("shapes", shape[0],shape[1])
+
 
 x2 = intersectionX(tempx1,tempx2,tempy1,tempy2,tempx11,tempx22,tempy11,tempy22)#MiddleTopPoint
 y2 = intersectionY(tempx1,tempx2,tempy1,tempy2,tempx11,tempx22,tempy11,tempy22)
@@ -183,10 +182,9 @@ y4 = intersectionY(btempx11,btempx22,btempy11,btempy22,ltempx1,ltempx2,ltempy1,l
 tempt = 'test_warp.jpg'
 main_test.Transform(img,tempt, x1,y1,x2,y2,x3,y3,x4,y4)
 cv2.line(img4,(x2,y2),(x2,shape[1]),(255,255,255),2) # middle
-print(x2,y2)
 tempt = 'test_warp2.jpg'
 x1, y1 = x2, y2
-print(tempx11,tempx22,tempy11,tempy22,rtempx1,rtempx2,rtempy1,rtempy2)
+#print(tempx11,tempx22,tempy11,tempy22,rtempx1,rtempx2,rtempy1,rtempy2)
 x2 = intersectionX(tempx11,tempx22,tempy11,tempy22,rtempx1,rtempx2,rtempy1,rtempy2)#TopRightPoint
 y2 = intersectionY(tempx11,tempx22,tempy11,tempy22,rtempx1,rtempx2,rtempy1,rtempy2)
 
@@ -195,7 +193,7 @@ y3 = intersectionY(btempx1,btempx2,btempy1,btempy2,rtempx1,rtempx2,rtempy1,rtemp
 
 x4 = intersectionX(btempx1,btempx2,btempy1,btempy2,x1,x1,y1,shape[1])#BottomLeftPoint
 y4 = intersectionY(btempx1,btempx2,btempy1,btempy2,x1,x1,y1,shape[1])
-print(x1,y1,x2,y2,x3,y3,x4,y4)
+#print(x1,y1,x2,y2,x3,y3,x4,y4)
 main_test.Transform(img,tempt, x1,y1,x2,y2,x3,y3,x4,y4)
 #cv2.line(img4,(ltempx1,ltempy1),(ltempx2,ltempy2),(0,20,0),2) #LeftVert
 #cv2.line(img4,(rtempx1,rtempy1),(rtempx2,rtempy2),(0,0,0),2) # RightVert
