@@ -15,8 +15,7 @@ blur = cv2.blur(img,(3,3))
 gray = cv2.cvtColor(blur,cv2.COLOR_BGR2GRAY)
 edges = cv2.Canny(gray,200,300,apertureSize = 3)
 cv2.imwrite('test_gray.jpg',edges)
-minLineLength = 500
-maxLineGap = 20
+
 
 
 GoodAtLines=True
@@ -37,7 +36,7 @@ j = 0
 temp = []
 k=0
 f = 0
-for key1,line2 in enumerate(lines2):
+for line2 in lines2:
 	j+=1
 	a = np.cos(line2[0][1])
 	b = np.sin(line2[0][1])
@@ -47,19 +46,10 @@ for key1,line2 in enumerate(lines2):
 	y1 = int(y0 + 1000*(a))
 	x2 = int(x0 - 1000*(-b))
 	y2 = int(y0 - 1000*(a))
-	theta = line2[0][1]*90
+	#theta = line2[0][1]*90
 	temp.append([line2[0][0],line2[0][1]])
-
-for line in temp:
-	a = np.cos(line[1])
-	b = np.sin(line[1])
-	x0 = a*line[0]
-	y0 = b*line[0]
-	x1 = int(x0 + 1000*(-b))
-	y1 = int(y0 + 1000*(a))
-	x2 = int(x0 - 1000*(-b))
-	y2 = int(y0 - 1000*(a))
 	cv2.line(img3,(x1,y1),(x2,y2),(0,0,255),2)
+
 cv2.imwrite('test_2_3.jpg',img3)
 for line in temp:
 	for key,line1 in enumerate(temp): #line1 - line = bilo 160
